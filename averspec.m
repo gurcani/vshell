@@ -1,0 +1,11 @@
+nps=41;
+phi=load('vshell_out.dat');
+N=floor(size(phi,1)/nps);
+kk=phi(:,1);
+phi=phi(:,2);
+psi=reshape(phi(1:N*nps)',nps,N);
+k=reshape(kk(1:N*nps)',nps,N);
+kk=k(1:nps);
+phisqrav=sum(psi(:,200:900).^2,2)/700;
+h=loglog(kk,phisqrav,'x');
+set(h,'linewidth',3);
